@@ -320,12 +320,14 @@ public class Object {
      * 译文：
      * 类Object本身并不实现接口Cloneable，因此，在类为Object的对象上调用clone方法将在运行时引发异常。
      *
-     * @return     a clone of this instance.
-     * @throws  CloneNotSupportedException  if the object's class does not
+     * @return     原文：a clone of this instance.  译文：此实例的副本。
+     * @throws  CloneNotSupportedException  原文：if the object's class does not
      *               support the {@code Cloneable} interface. Subclasses
      *               that override the {@code clone} method can also
      *               throw this exception to indicate that an instance cannot
      *               be cloned.
+     *               译文：如果对象的类不支持{@code Cloneable}接口。
+     *               覆盖clone方法的子类也可以引发此异常，以指示实例不能被克隆。
      * @see java.lang.Cloneable
      */
     protected native Object clone() throws CloneNotSupportedException;

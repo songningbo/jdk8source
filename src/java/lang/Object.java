@@ -333,83 +333,122 @@ public class Object {
     protected native Object clone() throws CloneNotSupportedException;
 
     /**
+     * 原文：
      * Returns a string representation of the object. In general, the
      * {@code toString} method returns a string that
      * "textually represents" this object. The result should
      * be a concise but informative representation that is easy for a
      * person to read.
      * It is recommended that all subclasses override this method.
+     * 译文：
+     * 返回对象的字符串表示形式。通常，toString方法返回一个字符串，该字符串“以文本形式表示”此对象。
+     * 结果应简洁但内容丰富，便于阅读。
      * <p>
+     * 原文：
      * The {@code toString} method for class {@code Object}
      * returns a string consisting of the name of the class of which the
      * object is an instance, the at-sign character `{@code @}', and
      * the unsigned hexadecimal representation of the hash code of the
      * object. In other words, this method returns a string equal to the
      * value of:
+     * 译文：
+     * 类Object的toString方法返回一个字符串，该字符串由对象为实例的类的名称组成。
+     * 符号字符“ @”和对象的哈希码的无符号十六进制表示形式。
+     * 换句话说，此方法返回的字符串等于：
      * <blockquote>
      * <pre>
      * getClass().getName() + '@' + Integer.toHexString(hashCode())
      * </pre></blockquote>
      *
-     * @return  a string representation of the object.
+     * @return  原文：a string representation of the object. 译文：对象的字符串表示形式
      */
     public String toString() {
         return getClass().getName() + "@" + Integer.toHexString(hashCode());
     }
 
     /**
+     * 原文：
      * Wakes up a single thread that is waiting on this object's
      * monitor. If any threads are waiting on this object, one of them
      * is chosen to be awakened. The choice is arbitrary and occurs at
      * the discretion of the implementation. A thread waits on an object's
      * monitor by calling one of the {@code wait} methods.
+     * 译文：
+     * 唤醒正在此对象的*监视器上等待的单个线程。如果有任何线程在等待该对象，则选择其中一个唤醒。
+     * 该选择是任意的，并且在实现时自行决定。线程通过调用wait方法之一在对象的监视器上等待。
      * <p>
+     * 原文：
      * The awakened thread will not be able to proceed until the current
      * thread relinquishes the lock on this object. The awakened thread will
      * compete in the usual manner with any other threads that might be
      * actively competing to synchronize on this object; for example, the
      * awakened thread enjoys no reliable privilege or disadvantage in being
      * the next thread to lock this object.
+     * 译文：
+     * 在当前线程放弃该对象上的锁定之前，唤醒的线程将无法继续。
+     * 唤醒的线程将以通常的方式与可能正在主动竞争以在该对象上进行同步的任何其他线程竞争；
+     * 例如，被唤醒的线程在成为锁定该对象的下一个线程时没有任何可靠的特权或劣势。
+     *
      * <p>
+     * 原文：
      * This method should only be called by a thread that is the owner
      * of this object's monitor. A thread becomes the owner of the
      * object's monitor in one of three ways:
+     * 译文：
+     * 此方法只能由作为该对象的监视器的所有者的线程调用。
+     * 线程通过以下三种方式之一成为对象的监视器的所有者：
      * <ul>
-     * <li>By executing a synchronized instance method of that object.
-     * <li>By executing the body of a {@code synchronized} statement
+     * <li>原文：By executing a synchronized instance method of that object. 译文：通过执行该对象的同步实例方法
+     * <li>原文：By executing the body of a {@code synchronized} statement
      *     that synchronizes on the object.
-     * <li>For objects of type {@code Class,} by executing a
+     *     译文：通过执行在对象上同步的Synchronized语句的主体。
+     * <li>原文：For objects of type {@code Class,} by executing a
      *     synchronized static method of that class.
+     *     译文：对于类型为Class的对象，请执行该类的同步静态方法。
      * </ul>
      * <p>
-     * Only one thread at a time can own an object's monitor.
+     * 原文：Only one thread at a time can own an object's monitor.
+     * 译文：一次只能有一个线程拥有对象的监视器
      *
-     * @throws  IllegalMonitorStateException  if the current thread is not
+     * @throws  IllegalMonitorStateException  原文：if the current thread is not
      *               the owner of this object's monitor.
+     *               译文：如果当前线程不是此对象的监视器的所有者。
      * @see        java.lang.Object#notifyAll()
      * @see        java.lang.Object#wait()
      */
     public final native void notify();
 
     /**
+     * 原文：
      * Wakes up all threads that are waiting on this object's monitor. A
      * thread waits on an object's monitor by calling one of the
      * {@code wait} methods.
+     * 译文：唤醒正在此对象的监视器上等待的所有线程。 线程通过调用wait方法之一在对象的监视器上等待。
      * <p>
+     * 原文：
      * The awakened threads will not be able to proceed until the current
      * thread relinquishes the lock on this object. The awakened threads
      * will compete in the usual manner with any other threads that might
      * be actively competing to synchronize on this object; for example,
      * the awakened threads enjoy no reliable privilege or disadvantage in
      * being the next thread to lock this object.
+     * 译文：
+     * 在当前线程放弃对该对象的锁定之前，唤醒的线程将无法继续。
+     * 唤醒的线程将以通常的方式与可能正在主动竞争以与此对象进行同步的任何其他线程竞争；
+     * 例如，被唤醒的线程在作为锁定该对象的下一个线程时没有任何可靠的特权或劣势。
      * <p>
+     * 原文：
      * This method should only be called by a thread that is the owner
      * of this object's monitor. See the {@code notify} method for a
      * description of the ways in which a thread can become the owner of
      * a monitor.
+     * 译文：
+     * 此方法只能由作为该对象的监视器的所有者的线程调用。
+     * 有关线程可以成为监视器所有者的方式的说明，请参见notify方法。
      *
-     * @throws  IllegalMonitorStateException  if the current thread is not
+     * @throws  IllegalMonitorStateException 原文：if the current thread is not
      *               the owner of this object's monitor.
+     *               译文：如果当前线程不是此对象的监视器的所有者。
      * @see        java.lang.Object#notify()
      * @see        java.lang.Object#wait()
      */

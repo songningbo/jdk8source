@@ -455,30 +455,58 @@ public class Object {
     public final native void notifyAll();
 
     /**
+     * 原文：
      * Causes the current thread to wait until either another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object, or a
      * specified amount of time has elapsed.
+     * 译文：
+     * 使当前线程等待，直到另一个线程为此对象调用 java.lang.Object＃notify（）方法
+     * 或 java.lang.Object＃notifyAll（）方法，或者指定的时间已过去。
      * <p>
+     * 原文：
      * The current thread must own this object's monitor.
+     * 译文：
+     * 当前线程必须拥有该对象的监视器。
      * <p>
+     * 原文：
      * This method causes the current thread (call it <var>T</var>) to
      * place itself in the wait set for this object and then to relinquish
      * any and all synchronization claims on this object. Thread <var>T</var>
      * becomes disabled for thread scheduling purposes and lies dormant
      * until one of four things happens:
+     * 译文：
+     * 此方法使当前线程（称为 T ）将自身置于该对象的等待集中，然后放弃对该对象的所有同步声明。
+     * 出于线程调度目的，线程 T 被禁用，并且在发生以下四种情况之一之前一直处于休眠状态：
      * <ul>
-     * <li>Some other thread invokes the {@code notify} method for this
+     * <li>
+     * 原文：
+     * Some other thread invokes the {@code notify} method for this
      * object and thread <var>T</var> happens to be arbitrarily chosen as
      * the thread to be awakened.
-     * <li>Some other thread invokes the {@code notifyAll} method for this
+     * 译文：
+     * 其他一些线程为此对象调用notify方法，并且线程T恰好被任意选择为唤醒线程。
+     * <li>
+     * 原文：
+     * Some other thread invokes the {@code notifyAll} method for this
      * object.
-     * <li>Some other thread {@linkplain Thread#interrupt() interrupts}
+     * 译文：
+     * 其他一些线程为此对象调用notifyAll方法。
+     * <li>
+     * 原文：
+     * Some other thread {@linkplain Thread#interrupt() interrupts}
      * thread <var>T</var>.
-     * <li>The specified amount of real time has elapsed, more or less.  If
+     * 译文：
+     * 其他一些线程Thread＃interrupt（）中断线程 T 。
+     * <li>
+     * 原文：
+     * The specified amount of real time has elapsed, more or less.  If
      * {@code timeout} is zero, however, then real time is not taken into
      * consideration and the thread simply waits until notified.
+     * 译文：
+     * 指定的实时量或多或少已经过去。但是，如果 timeout为零，则不会考虑实时，并且线程只是等待直到通知。
      * </ul>
+     * 原文：
      * The thread <var>T</var> is then removed from the wait set for this
      * object and re-enabled for thread scheduling. It then competes in the
      * usual manner with other threads for the right to synchronize on the
@@ -490,6 +518,10 @@ public class Object {
      * {@code wait} method, the synchronization state of the object and of
      * thread {@code T} is exactly as it was when the {@code wait} method
      * was invoked.
+     * 译文：
+     * 然后，将线程T从此对象的等待集中删除，并重新启用线程调度。然后，它以通常的方式与其他线程竞争在对象上进行同步的权利。
+     * 一旦它获得了对象的控制权，它对对象的所有同步声明都将恢复到以前的状态，即恢复到调用wait方法时的情况。
+     * 然后，线程T从wait方法的调用返回。因此，从wait方法返回时，对象和线程T的同步状态与调用wait方法时的状态完全相同。
      * <p>
      * A thread can also wake up without being notified, interrupted, or
      * timing out, a so-called <i>spurious wakeup</i>.  While this will rarely
